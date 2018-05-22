@@ -1,14 +1,13 @@
 TEMPLATE = app
-CONFIG += console c++11
+CONFIG += c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
         main.cpp \
-    process.cpp \
-    scheduler.cpp
+    scheduler.cpp \
+    process.cpp
 
 HEADERS += \
-    process.h \
-    process.h \
-    scheduler.h
+    scheduler.h \
+    process.h

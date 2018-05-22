@@ -5,16 +5,19 @@
 
 class Scheduler {
 public:
-    Scheduler(Process run, vector <Process> wait, vector <Process> ready);
-    Process getrun();
+    Scheduler();
     void clock ();
-    void startProcess(Process);
-    vector <Process> getWait();
-    vector <Process> getReady();
+    Process getrun();
+    void startProcess(Process *p);
+    Process* getRun();
+    std::vector <Process*> getWait();
+    std::vector <Process*> getReady();
     void printState();
+    bool Allempty();
 private:
-    int r;
-    vector <Process> w;
-    vector <Process> ry;
-}
+    Process* run = nullptr;
+    std::vector <Process*> wait;
+    std::vector <Process*> ready;
+    int quanto;
+};
 #endif // SCHEDULER_H

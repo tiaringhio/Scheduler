@@ -2,7 +2,7 @@
 #define PROCESS_H
 #include <vector>
 
-struct dupla {
+struct Dupla {
     int cicli;
     int salti;
 };
@@ -10,19 +10,25 @@ struct dupla {
 class Process {
 
 public:
-    Process(int PID, int totCPUtime, int CPUused, vector <dupla>);
-    int getPID() const;
-    int gettotCPUtime() const;
-    int getCPUused() const;
-    vector <dupla> getresNeed() const;
+    Process(int p, int t);
+    std::vector<Dupla> getresNeed();
     bool Needres();
     void progress();
-
+    void addDupla(int c,int s);
+    bool finishWait();
+    int getCPUused();
+    int gettotCPUtime();
+    int getinRun();
 private:
-    int P;
-    int t;
-    int C = 0;
-    vector <dupla> r;
-}
+    int PID;
+    int totCPUtime;
+    int CPUused;
+    int NumCicli;
+    int incrVett1;
+    int incrVett2;
+    int inWait;
+    int inRun;
+    std::vector<Dupla> resNeed;
+};
 
 #endif // PROCESS_H
